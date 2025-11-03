@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Légendes du monde</title>
+</head>
+<body>
+  <h1>Légendes du monde</h1>
+  <form method="post">
+    <label>Titre : <input name="titre" required></label><br>
+    <label>Auteur : <input name="auteur"></label><br>
+    <textarea name="texte" placeholder="Écris ta légende ici..." rows="6" cols="50" required></textarea><br>
+    <button type="submit">Publier</button>
+  </form>
+
+  <h2>Légendes partagées :</h2>
+  {% for legende in legends %}
+    <article>
+      <h3>{{ legende.titre }}</h3>
+      <p><em>par {{ legende.auteur }}</em></p>
+      <p>{{ legende.texte }}</p>
+      <small>Posté le {{ legende.date }}</small>
+      <hr>
+    </article>
+  {% endfor %}
+  <a href="/accueil">Retour à l’accueil</a>
+</body>
+</html>
